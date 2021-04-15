@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseWeapon : MonoBehaviour
+public abstract class BaseWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string weaponName = "";
+    public float shootSpeed = 1f;
+    public float minSpread = 0f;
+    public float maxSpread = 0f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject bulletPrefab;
+    public Transform gunPoint;
+
 }
