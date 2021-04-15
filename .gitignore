@@ -58,5 +58,14 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Temp/UnityLockfile
+/[Tt]emp/*
+BulletHellJam/BulletHellJam/Temp/*
+
 BulletHellJam/BulletHellJam/Temp/UnityLockfile
 BulletHellJam/BulletHellJam/Temp/UnityTempFile-8ffe14a50faec3c4caba8c8e9d257c0f
+BulletHellJam/BulletHellJam/Temp/UnityTempFile-8a57d2607d070e047ab3482114869eb9
+BulletHellJam/BulletHellJam/Temp/UnityTempFile-b9ef6b80390f5cd48bbc8f14902c6dfc
+BulletHellJam/BulletHellJam/Temp/UnityTempFile-eee5b6a5ce09b1d45ab13b2832f6dbb0
+BulletHellJam/BulletHellJam/Temp/UnityTempFile-fb649e797d20be54dbdc29338c574737
+BulletHellJam/BulletHellJam/Temp/UnityTempFile-fe9e5aa9e9d77114a922f02f723408a5
