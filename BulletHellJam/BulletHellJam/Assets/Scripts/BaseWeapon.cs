@@ -2,17 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseWeapon : MonoBehaviour
+public abstract class BaseWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private float shootSpeed;
+    [SerializeField]
+    private float shootSpeedReal;
+    [SerializeField]
+    private float minSpread;
+    [SerializeField]
+    private float maxSpread;
 
-    // Update is called once per frame
+    public GameObject bulletPrefab;
+    public Transform gunPoint;
+
+
     void Update()
     {
-        
+        if (shootSpeedReal > 0)
+        {
+            shootSpeed -= Time.deltaTime;
+        }
     }
+
+    public void Shoot ()
+    {
+        if (shootSpeedReal <= 0)
+        {
+            shootSpeedReal = shootSpeed;
+        }
+    }
+
 }
