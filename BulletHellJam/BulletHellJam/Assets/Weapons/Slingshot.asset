@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d025c03acbcce0548a710efd09621ae3, type: 3}
+  m_Name: Slingshot
+  m_EditorClassIdentifier: 
+  weaponID: 0
+  shootSpeed: 3
+  minBulletsPerShot: 1
+  maxBulletsPerShot: 2
+  minSpread: 0
+  maxSpread: 0
+  sprite: {fileID: 21300000, guid: 8236dad33c50be44d8728578d243391b, type: 3}
+  bulletPrefab: {fileID: 6287627125146453152, guid: a5831188444ac5a4fbe0e5f1ab276327,
+    type: 3}

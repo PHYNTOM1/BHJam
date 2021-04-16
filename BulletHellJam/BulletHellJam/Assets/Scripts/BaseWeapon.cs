@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseWeapon : MonoBehaviour
+[CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
+public class BaseWeapon : ScriptableObject
 {
-    public string weaponName = "";
+    public int weaponID = 0;
     public float shootSpeed = 1f;
     public int minBulletsPerShot = 1;
     public int maxBulletsPerShot = 1;
     public float minSpread = 0f;
     public float maxSpread = 0f;
 
+    public Sprite sprite;
     public GameObject bulletPrefab;
-    public Transform gunPoint;
 
 }
