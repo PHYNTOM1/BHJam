@@ -9,8 +9,8 @@ public class BaseWeapon : ScriptableObject
     public float shootSpeed = 1f;
     public int minBulletsPerShot = 1;
     public int maxBulletsPerShot = 1;
-    public float minSpread = 0f;
-    public float maxSpread = 0f;
+    public bool hasPattern = false;
+    public float spreadAngle = 0f;
 
     public Sprite sprite;
     public GameObject bulletPrefab;

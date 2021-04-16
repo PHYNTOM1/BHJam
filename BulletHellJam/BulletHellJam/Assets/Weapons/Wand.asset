@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d025c03acbcce0548a710efd09621ae3, type: 3}
   m_Name: Wand
   m_EditorClassIdentifier: 
-  weaponID: 0
+  weaponID: 1
   shootSpeed: 1
-  minBulletsPerShot: 3
+  minBulletsPerShot: 2
   maxBulletsPerShot: 6
-  minSpread: 0
-  maxSpread: 0
+  hasPattern: 0
+  spreadAngle: 30
   sprite: {fileID: 21300000, guid: ad0f28065f88d164e89ba20161526a71, type: 3}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 6287627125146453152, guid: 6b19f255ee3dcc8498436bc23fbcc481,
+    type: 3}

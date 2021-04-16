@@ -52,12 +52,34 @@ public class PlayerShooting : MonoBehaviour
         {
             shootSpeedReal = weapon.shootSpeed;
 
-            for (int i = Random.Range(weapon.minBulletsPerShot, weapon.maxBulletsPerShot + 1); i > 0; i--)
+            if (weapon.hasPattern)
             {
-                GameObject _b = Instantiate(weapon.bulletPrefab, gunPoint.position, this.gameObject.transform.rotation);
+                int _bps = Random.Range(weapon.minBulletsPerShot, weapon.maxBulletsPerShot + 1);
+
+                float _angleStep = weapon.spreadAngle / _bps;
+                float _angle = transform.rotation.eulerAngles.z;
+                float _offset = (weapon.spreadAngle / 2) - (_angleStep / 2);
+
+                for (int i = 0; i < _bps; i++)
+                {
+                    float _currAngle = _angleStep * i;
+
+                    Quaternion _rot = Quaternion.Euler(new Vector3(0, 0, _angle + _currAngle - _offset));
+                    GameObject _b = Instantiate(weapon.bulletPrefab, gunPoint.position, _rot);
+                }
+            }
+            else
+            {
+                for (int i = Random.Range(weapon.minBulletsPerShot, weapon.maxBulletsPerShot + 1); i > 0; i--)
+                {
+                    GameObject _b = Instantiate(weapon.bulletPrefab, gunPoint.position, this.gameObject.transform.rotation);
+
+                    _b.transform.Rotate(0, 0, Random.Range(-weapon.spreadAngle, weapon.spreadAngle));
+                }
             }
         }
     }
+
 
 
     private void DoMouseRotation()
