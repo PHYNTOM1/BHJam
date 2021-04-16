@@ -14,13 +14,27 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField]
     private float shootSpeedReal = 0f;
 
-    
+    public List<BaseWeapon> allWeapons = new List<BaseWeapon>();
+
 
     void Update()
     {
         if (Input.GetButton("Fire1"))
         {
             Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            SetWeapon(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SetWeapon(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            SetWeapon(2);
         }
 
         if (shootSpeedReal > 0)
@@ -62,5 +76,21 @@ public class PlayerShooting : MonoBehaviour
             sr.flipY = false;
         }
     }
+
+
+    public void SetWeapon(int s)
+    {
+        foreach (BaseWeapon bw in allWeapons)
+        {
+            if (s == bw.weaponID)
+            {
+                weapon = allWeapons[s];
+                sr.sprite = weapon.sprite;
+
+                shootSpeedReal = 0f;
+            }
+        }
+    }
+
 
 }
