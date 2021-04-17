@@ -19,5 +19,5 @@ MonoBehaviour:
   hasPattern: 1
   spreadAngle: 30
   sprite: {fileID: 21300000, guid: 8236dad33c50be44d8728578d243391b, type: 3}
-  bulletPrefab: {fileID: 6287627125146453152, guid: 6b19f255ee3dcc8498436bc23fbcc481,
+  bulletPrefab: {fileID: 6287627125146453152, guid: a5831188444ac5a4fbe0e5f1ab276327,
     type: 3}
