@@ -36,6 +36,10 @@ public class PlayerShooting : MonoBehaviour
         {
             SetWeapon(2);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            SetWeapon(3);
+        }
 
         if (shootSpeedReal > 0)
         {
