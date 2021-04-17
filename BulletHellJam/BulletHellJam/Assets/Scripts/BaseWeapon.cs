@@ -14,5 +14,6 @@ public class BaseWeapon : ScriptableObject
 
     public Sprite sprite;
     public GameObject bulletPrefab;
+    public int bulletType = 0;
 
 }

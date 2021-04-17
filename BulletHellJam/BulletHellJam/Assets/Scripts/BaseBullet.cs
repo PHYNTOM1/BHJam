@@ -10,9 +10,9 @@ public class BaseBullet : MonoBehaviour
     public GameObject hitEffect;
     public Rigidbody2D rb;
 
-    void Start()
+    void OnEnable()
     {
-        Destroy(this.gameObject, deathTime);
+        Invoke("DoDestroy", deathTime);
     }
 
     void FixedUpdate()
@@ -32,7 +32,7 @@ public class BaseBullet : MonoBehaviour
                 }
 
                 //Instantiate(hitEffect, coll.GetContact(0), Quaternion.identity);
-                Destroy(this.gameObject);
+                DoDestroy();
             }
         }
         else if (this.gameObject.CompareTag("EnemyBullet"))
@@ -45,9 +45,15 @@ public class BaseBullet : MonoBehaviour
                 }
 
                 //Instantiate(hitEffect, coll.GetContact(0), Quaternion.identity);
-                Destroy(this.gameObject);
+                DoDestroy();
             }
         }
+    }
+
+
+    private void DoDestroy()
+    {
+        this.gameObject.SetActive(false);
     }
 
 }
