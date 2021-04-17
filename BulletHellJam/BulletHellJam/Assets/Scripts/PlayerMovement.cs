@@ -4,24 +4,40 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public GameObject player;
-    public float moveSpeed;
-    public Rigidbody2D rb;
-    private Vector2 moveDirection;
-    public float dashSpeed;
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private float dashMult;
+    [SerializeField]
     private bool isDashing;
-    public float StartDashTimer;
+    [SerializeField]
+    private float StartDashTimer;
+    [SerializeField]
     private float currentDashTimer;
-    public float cooldown;
+    [SerializeField]
+    private float cooldown;
+    [SerializeField]
     private float currentCooldown;
     
-
+    private Vector2 moveDirection;
+    
+    public Rigidbody2D rb;
     public ParticleSystem ParticleOnDash;
  
 
     void Update()
     {
-        ProcessInputs(); 
+        if (currentDashTimer > 0)
+        {
+            currentDashTimer -= Time.deltaTime;
+        }
+
+        if (currentCooldown > 0)
+        {
+            currentCooldown -= Time.deltaTime;
+        }
+
+        ProcessInputs();
     }
 
     void FixedUpdate()
@@ -31,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
 
     void ProcessInputs()
     {
-
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
@@ -42,32 +57,28 @@ public class PlayerMovement : MonoBehaviour
             if (currentCooldown <= 0)
             {
                 isDashing = true;
+                currentDashTimer = StartDashTimer;
+
                 ParticleOnDash.Play();
             }    
-            
         }
     }
 
     void Move()
-    {
-       currentDashTimer -= Time.deltaTime;
-       currentCooldown -= Time.deltaTime;
-        
+    {     
        rb.velocity = moveDirection.normalized * moveSpeed;
         
         if (isDashing == true)
         {
-            rb.velocity = moveDirection.normalized * moveSpeed * dashSpeed;
-        }
-        if (currentDashTimer <= 0)
-        {
-           isDashing = false;
-           currentDashTimer = StartDashTimer;
-           currentCooldown = cooldown;
+            rb.velocity = moveDirection.normalized * moveSpeed * dashMult;
+
+            if (currentDashTimer <= 0)
+            {
+               isDashing = false;
+               currentCooldown = cooldown;
+            }
         }
         
 
-        
-        
     }
 }

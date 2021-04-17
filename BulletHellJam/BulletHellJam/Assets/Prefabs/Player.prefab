@@ -311,6 +311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70470eeb58d9136428d09fd71f48178e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 3503965387402796794}
   moveSpeed: 5
+  dashMult: 8
+  isDashing: 0
+  StartDashTimer: 0.1
+  currentDashTimer: 0
+  cooldown: 3
+  currentCooldown: 0
   rb: {fileID: 3503965387402796792}
+  ParticleOnDash: {fileID: 0}
