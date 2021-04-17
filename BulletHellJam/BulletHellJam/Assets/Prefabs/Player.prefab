@@ -314,7 +314,7 @@ MonoBehaviour:
   moveSpeed: 5
   dashMult: 8
   isDashing: 0
-  StartDashTimer: 0.1
+  StartDashTimer: 0.08
   currentDashTimer: 0
   cooldown: 3
   currentCooldown: 0
