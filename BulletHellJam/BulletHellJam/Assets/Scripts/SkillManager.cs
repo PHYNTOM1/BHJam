@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    public List<Skill> allSkills = new List<Skill>();
 }
+
+
+public class Skill : MonoBehaviour
+{
+    public string name;
+    public bool unlocked;
+    public bool active;
+
+    public Skill(string _name, bool _unlocked)
+    {
+        name = _name;
+        unlocked = _unlocked;
+        active = false;
+    }
+}    

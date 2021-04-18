@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 3503965385513484906}
   - component: {fileID: 3026156377462602787}
   - component: {fileID: 5486527095661802199}
+  - component: {fileID: 752227499251166027}
   m_Layer: 0
   m_Name: Weaponholder
   m_TagString: Untagged
@@ -238,7 +239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPoint: {fileID: 414365441885623045}
   sr: {fileID: 4291805956259997609}
-  weapon: {fileID: 11400000, guid: 5993e012ee1114e47ae71baceeddc986, type: 2}
   rotSpeed: 9
   shootSpeedReal: 0
   allWeapons:
@@ -246,8 +246,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 854df05b7f3f4eb4289c7793379992f2, type: 2}
   - {fileID: 11400000, guid: 8729003e76ee75e4f8497848278720a4, type: 2}
   - {fileID: 11400000, guid: e3c4ca58be865c74ea0f98d2e6418ead, type: 2}
+  currWeapon: {fileID: 11400000, guid: 5993e012ee1114e47ae71baceeddc986, type: 2}
   stonebulletPool: {fileID: 3026156377462602787}
   magicbulletPool: {fileID: 5486527095661802199}
+  regularbulletPool: {fileID: 3026156377462602787}
+  allAmmos:
+  - {fileID: 11400000, guid: f6be3fc847817134293207f5e359c8b0, type: 2}
+  - {fileID: 11400000, guid: f8fcd2a2e63f6ad4d92f6100e3d70762, type: 2}
+  - {fileID: 11400000, guid: 424f1f4a62b7a924980e689fa9869da6, type: 2}
+  currAmmo: {fileID: 11400000, guid: f6be3fc847817134293207f5e359c8b0, type: 2}
 --- !u!114 &3026156377462602787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +282,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pooledBullet: {fileID: 6287627125146453152, guid: 6b19f255ee3dcc8498436bc23fbcc481,
+    type: 3}
+--- !u!114 &752227499251166027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503965385513484908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5c543430abc9f4d81789c681b0edfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledBullet: {fileID: 6287627125146453152, guid: a1aa01fba1a06ba459514d9daab72d89,
     type: 3}
 --- !u!1 &3503965387402796794
 GameObject:
@@ -424,9 +445,6 @@ MonoBehaviour:
   moveSpeed: 5
   dashMult: 8
   isDashing: 0
-  StartDashTimer: 0.08
+  startDashTimer: 0
   currentDashTimer: 0
-  cooldown: 3
-  currentCooldown: 0
   rb: {fileID: 3503965387402796792}
-  ParticleOnDash: {fileID: 0}

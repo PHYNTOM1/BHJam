@@ -11,18 +11,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool isDashing;
     [SerializeField]
-    private float StartDashTimer;
+    private float startDashTimer;
     [SerializeField]
     private float currentDashTimer;
+    /*
     [SerializeField]
     private float cooldown;
     [SerializeField]
     private float currentCooldown;
-    
+    */
+
     private Vector2 moveDirection;
     
     public Rigidbody2D rb;
-    public ParticleSystem ParticleOnDash;
  
 
     void Update()
@@ -32,10 +33,12 @@ public class PlayerMovement : MonoBehaviour
             currentDashTimer -= Time.deltaTime;
         }
 
+        /*
         if (currentCooldown > 0)
         {
             currentCooldown -= Time.deltaTime;
         }
+        */
 
         ProcessInputs();
     }
@@ -52,16 +55,16 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = new Vector2(moveX, moveY);
 
+        /*
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             if (currentCooldown <= 0)
             {
                 isDashing = true;
                 currentDashTimer = StartDashTimer;
-
-                ParticleOnDash.Play();
             }    
         }
+        */
     }
 
     void Move()
@@ -75,10 +78,14 @@ public class PlayerMovement : MonoBehaviour
             if (currentDashTimer <= 0)
             {
                isDashing = false;
-               currentCooldown = cooldown;
+               //currentCooldown = cooldown;
             }
         }
-        
-
     }
+
+    public void Dash()
+    {
+        isDashing = true;
+        currentDashTimer = startDashTimer;
+    }    
 }

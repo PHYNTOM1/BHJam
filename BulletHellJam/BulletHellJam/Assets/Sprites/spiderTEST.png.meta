@@ -1,7 +1,49 @@
 fileFormatVersion: 2
 guid: 95f9168bec05e2b4b875aae79da620d7
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7302001990105671347
+    second: spiderTEST_0
+  - first:
+      213: 2436371202713802157
+    second: spiderTEST_1
+  - first:
+      213: -410109951739878915
+    second: spiderTEST_2
+  - first:
+      213: 4438324655466388216
+    second: spiderTEST_3
+  - first:
+      213: 1173036993687431665
+    second: spiderTEST_4
+  - first:
+      213: 5672781970859348639
+    second: spiderTEST_5
+  - first:
+      213: -8702746665984182897
+    second: spiderTEST_6
+  - first:
+      213: -1551708394818365431
+    second: spiderTEST_7
+  - first:
+      213: -1408244656662345896
+    second: spiderTEST_8
+  - first:
+      213: 9188948384054123931
+    second: spiderTEST_9
+  - first:
+      213: -4498719296828486
+    second: spiderTEST_10
+  - first:
+      213: -7213008290761933216
+    second: spiderTEST_11
+  - first:
+      213: 3401790628507339260
+    second: spiderTEST_12
+  - first:
+      213: 6952987665111872037
+    second: spiderTEST_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:

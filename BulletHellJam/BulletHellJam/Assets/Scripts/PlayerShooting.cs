@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
     public Transform gunPoint;
     public SpriteRenderer sr;
-    public BaseWeapon weapon;
 
     public float rotSpeed = 7f;
 
@@ -15,17 +13,26 @@ public class PlayerShooting : MonoBehaviour
     private float shootSpeedReal = 0f;
 
     public List<BaseWeapon> allWeapons = new List<BaseWeapon>();
+    public BaseWeapon currWeapon;
 
     public BulletPool stonebulletPool;
     public BulletPool magicbulletPool;
+    public BulletPool regularbulletPool;
 
+    public List<BaseAmmo> allAmmos = new List<BaseAmmo>();
+    public BaseAmmo currAmmo;
+
+    void Start()
+    {
+        foreach (BaseAmmo ba in allAmmos)
+        {
+            ba.ammoCurr = ba.ammoMax;
+        }
+    }
 
     void Update()
     {
         DoMouseRotation();
-
-        WeaponSwitching();
-
 
         if (Input.GetButton("Fire1"))
         {
@@ -41,17 +48,25 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot()
     {
-        if (shootSpeedReal <= 0)
+        
+        if (shootSpeedReal <= 0 && currAmmo.ammoCurr > 0)
         {
-            shootSpeedReal = weapon.shootSpeed;
-
-            if (weapon.hasPattern)
+            int _bps = Random.Range(currWeapon.minBulletsPerShot, currWeapon.maxBulletsPerShot + 1);
+            
+            if (_bps > currAmmo.ammoCurr)
             {
-                int _bps = Random.Range(weapon.minBulletsPerShot, weapon.maxBulletsPerShot + 1);
+                _bps = currAmmo.ammoCurr;
+            }
+            
+            currAmmo.ammoCurr -= _bps;
+            shootSpeedReal = currWeapon.shootSpeed;
 
-                float _angleStep = weapon.spreadAngle / _bps;
+
+            if (currWeapon.hasPattern)
+            {
+                float _angleStep = currWeapon.spreadAngle / _bps;
                 float _angle = transform.rotation.eulerAngles.z;
-                float _offset = (weapon.spreadAngle / 2) - (_angleStep / 2);
+                float _offset = (currWeapon.spreadAngle / 2) - (_angleStep / 2);
 
                 for (int i = 0; i < _bps; i++)
                 {
@@ -59,88 +74,52 @@ public class PlayerShooting : MonoBehaviour
 
                     Quaternion _rot = Quaternion.Euler(new Vector3(0, 0, _angle + _currAngle - _offset));
 
-                    GameObject _b = null;
+                    GameObject _b = SpawnBullet();
 
-                    switch (weapon.bulletType)
-                    {
-                        case 0:
-
-                            _b = stonebulletPool.GetBullet();
-                            break;
-                        case 1:
-
-                            _b = magicbulletPool.GetBullet();
-                            break;
-
-                        default:
-
-                            Debug.LogWarning("ERROR AT POOLING BULLET IN PLAYERSHOOTING!");
-                            break;
-                    }
-                    
-                    _b.transform.position = gunPoint.position;
                     _b.transform.rotation = _rot;
-                    _b.SetActive(true);
-
-                    //GameObject _b = Instantiate(weapon.bulletPrefab, gunPoint.position, _rot);
                 }
             }
             else
             {
-                for (int i = Random.Range(weapon.minBulletsPerShot, weapon.maxBulletsPerShot + 1); i > 0; i--)
+                for (int i = _bps; i > 0; i--)
                 {
-                    GameObject _b = null;
-
-                    switch (weapon.bulletType)
-                    {
-                        case 0:
-
-                            _b = stonebulletPool.GetBullet();
-                            break;
-                        case 1:
-
-                            _b = magicbulletPool.GetBullet();
-                            break;
-
-                        default:
-
-                            Debug.LogWarning("ERROR AT POOLING BULLET IN PLAYERSHOOTING!");
-                            break;
-                    }
-
-                    _b.transform.position = gunPoint.position;
-                    _b.transform.rotation = this.gameObject.transform.rotation;
-                    _b.SetActive(true);
-
-                    //GameObject _b = Instantiate(weapon.bulletPrefab, gunPoint.position, this.gameObject.transform.rotation);
-
-                    _b.transform.Rotate(0, 0, Random.Range(-weapon.spreadAngle, weapon.spreadAngle));
+                    GameObject _b = SpawnBullet();
+                    
+                    _b.transform.Rotate(0, 0, Random.Range(-currWeapon.spreadAngle, currWeapon.spreadAngle));
                 }
             }
         }
     }
 
-
-    private void WeaponSwitching()
+    private GameObject SpawnBullet()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SetWeapon(0);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SetWeapon(1);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SetWeapon(2);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SetWeapon(3);
-        }
-    }
+        GameObject _bt = null;
 
+        switch (currWeapon.bulletType)
+        {
+            case 0:
+
+                _bt = stonebulletPool.GetBullet();
+                break;
+            case 1:
+
+                _bt = magicbulletPool.GetBullet();
+                break;
+            case 2:
+
+                _bt = regularbulletPool.GetBullet();
+                break;
+            default:
+
+                Debug.LogWarning("ERROR AT POOLING BULLET IN PLAYERSHOOTING!");
+                break;
+        }
+
+        _bt.transform.position = gunPoint.position;
+        _bt.SetActive(true);
+
+        return _bt;
+    }    
 
     private void DoMouseRotation()
     {
@@ -159,19 +138,35 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-
     public void SetWeapon(int s)
     {
         foreach (BaseWeapon bw in allWeapons)
         {
             if (s == bw.weaponID)
             {
-                weapon = allWeapons[s];
-                sr.sprite = weapon.sprite;
+                currWeapon = allWeapons[s];
+                sr.sprite = currWeapon.sprite;
+
+                foreach (BaseAmmo ba in allAmmos)
+                {
+                    if (ba.ammoType == bw.bulletType)
+                    {
+                        currAmmo = ba;
+                    }
+                    break;
+                }
 
                 shootSpeedReal = 0f;
-            }
+                break;
+            }           
         }
+       
+        ReloadCurrAmmo();
+    }
+
+    public void ReloadCurrAmmo()
+    {
+        currAmmo.ammoCurr = currAmmo.ammoMax;
     }
 
 
