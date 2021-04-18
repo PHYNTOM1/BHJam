@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 32
+  m_ReferencePixelsPerUnit: 24
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 180.03604, y: 320}
   m_ScreenMatchMode: 1
@@ -453,11 +453,81 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5635070861756998357, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: orthographic size
+      value: 6.6666665
+      objectReference: {fileID: 0}
     - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
         type: 3}
       propertyPath: mainCanvas
       value: 
       objectReference: {fileID: 1122867694}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: requireStencilBuffer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: forceSquarePixels
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: finalBlitStretch.x
+      value: 1.0002002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: smooth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: pixels.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: internalResolution.x
+      value: 569
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: internalResolution.y
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: upscaledResolution.x
+      value: 1138
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: upscaledResolution.y
+      value: 640
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: finalBlitStretch.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: pixels.y
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248973186406496376, guid: 011b27e4d5cb12149b6afd88b68d1a2f,
+        type: 3}
+      propertyPath: pixelsPerUnit
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 011b27e4d5cb12149b6afd88b68d1a2f, type: 3}
 --- !u!1001 &6610101476728532519
@@ -470,7 +540,7 @@ PrefabInstance:
     - target: {fileID: 6610101476073678371, guid: 8b58b7115371a374e9d802905ddc74c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.632
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 6610101476073678371, guid: 8b58b7115371a374e9d802905ddc74c6,
         type: 3}
@@ -522,6 +592,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6610101476073678372, guid: 8b58b7115371a374e9d802905ddc74c6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -7435872831218108095, guid: 425a438f821781741ad98c95d5f559c8,
+        type: 3}
     - target: {fileID: 6610101476073678373, guid: 8b58b7115371a374e9d802905ddc74c6,
         type: 3}
       propertyPath: m_Name
