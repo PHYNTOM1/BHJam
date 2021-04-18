@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6610101476073678370}
   - component: {fileID: 6610101476073678383}
   - component: {fileID: 6610101476073678368}
+  - component: {fileID: 6543862496492475967}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Enemy
@@ -135,6 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a81a5368182d7749b9d7454ab7d3f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootSpeed: 1
+  shootSpeedReal: 1
+  patternType: 6
+  bulletPool: {fileID: 6543862496492475967}
 --- !u!114 &6610101476073678368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,3 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11811cae50fe9bd4db24276947f0f72f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6543862496492475967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6610101476073678373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5c543430abc9f4d81789c681b0edfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledBullet: {fileID: 6287627125146453152, guid: 99ab12c2c8d84be44947358fa8c1192f,
+    type: 3}
