@@ -160,16 +160,14 @@ public class PlayerShooting : MonoBehaviour
                     {
                         currAmmo = ba;
                         ammoImage.sprite = currAmmo.sprite;
+                        break;
                     }
-                    break;
                 }
 
                 shootSpeedReal = 0f;
                 break;
             }           
         }
-       
-        ReloadCurrAmmo();
     }
 
     public void ReloadCurrAmmo()
