@@ -10,6 +10,7 @@ public class BaseBullet : MonoBehaviour
     public GameObject hitEffect;
     public Rigidbody2D rb;
 
+
     void OnEnable()
     {
         Invoke("DoDestroy", deathTime);
@@ -49,7 +50,6 @@ public class BaseBullet : MonoBehaviour
             }
         }
     }
-
 
     private void DoDestroy()
     {

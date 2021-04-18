@@ -15,9 +15,10 @@ MonoBehaviour:
   weaponID: 0
   shootSpeed: 3
   minBulletsPerShot: 1
-  maxBulletsPerShot: 2
-  minSpread: 0
-  maxSpread: 0
+  maxBulletsPerShot: 1
+  hasPattern: 0
+  spreadAngle: 20
   sprite: {fileID: 21300000, guid: 8236dad33c50be44d8728578d243391b, type: 3}
   bulletPrefab: {fileID: 6287627125146453152, guid: a5831188444ac5a4fbe0e5f1ab276327,
     type: 3}
+  bulletType: 0

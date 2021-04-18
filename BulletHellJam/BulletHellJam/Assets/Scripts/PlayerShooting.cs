@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -21,6 +22,10 @@ public class PlayerShooting : MonoBehaviour
 
     public List<BaseAmmo> allAmmos = new List<BaseAmmo>();
     public BaseAmmo currAmmo;
+
+    public Text ammoText;
+    public Image ammoImage;
+
 
     void Start()
     {
@@ -48,7 +53,6 @@ public class PlayerShooting : MonoBehaviour
 
     public void Shoot()
     {
-        
         if (shootSpeedReal <= 0 && currAmmo.ammoCurr > 0)
         {
             int _bps = Random.Range(currWeapon.minBulletsPerShot, currWeapon.maxBulletsPerShot + 1);
@@ -60,6 +64,8 @@ public class PlayerShooting : MonoBehaviour
             
             currAmmo.ammoCurr -= _bps;
             shootSpeedReal = currWeapon.shootSpeed;
+
+            ammoText.text = currAmmo.ammoCurr + "/" + currAmmo.ammoMax;
 
 
             if (currWeapon.hasPattern)
@@ -84,7 +90,8 @@ public class PlayerShooting : MonoBehaviour
                 for (int i = _bps; i > 0; i--)
                 {
                     GameObject _b = SpawnBullet();
-                    
+
+                    _b.transform.rotation = transform.rotation;
                     _b.transform.Rotate(0, 0, Random.Range(-currWeapon.spreadAngle, currWeapon.spreadAngle));
                 }
             }
@@ -149,9 +156,10 @@ public class PlayerShooting : MonoBehaviour
 
                 foreach (BaseAmmo ba in allAmmos)
                 {
-                    if (ba.ammoType == bw.bulletType)
+                    if (ba.ammoType == currWeapon.bulletType)
                     {
                         currAmmo = ba;
+                        ammoImage.sprite = currAmmo.sprite;
                     }
                     break;
                 }
@@ -167,6 +175,7 @@ public class PlayerShooting : MonoBehaviour
     public void ReloadCurrAmmo()
     {
         currAmmo.ammoCurr = currAmmo.ammoMax;
+        ammoText.text = currAmmo.ammoCurr + "/" + currAmmo.ammoMax;
     }
 
 

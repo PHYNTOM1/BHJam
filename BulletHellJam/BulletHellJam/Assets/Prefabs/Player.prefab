@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88f1386dd63147198d003daff00d37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenResolution: {x: 1124, y: 632}
+  screenResolution: {x: 1125, y: 633}
   internalResolution: {x: 569, y: 320}
   upscaledResolution: {x: 1138, y: 640}
   smooth: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   requireStencilBuffer: 0
   useUpscaleShader: 0
   upscaleMaterial: {fileID: 2100000, guid: 6de3dd6a2ea7941c6aa915f6353a2a98, type: 2}
-  finalBlitStretch: {x: 1.0002002, y: 1}
+  finalBlitStretch: {x: 0.99950856, y: 1}
   mainCamera: {fileID: 5635070861756998357}
   mainCanvas: {fileID: 0}
 --- !u!1 &3503965385513484908
@@ -249,12 +249,14 @@ MonoBehaviour:
   currWeapon: {fileID: 11400000, guid: 5993e012ee1114e47ae71baceeddc986, type: 2}
   stonebulletPool: {fileID: 3026156377462602787}
   magicbulletPool: {fileID: 5486527095661802199}
-  regularbulletPool: {fileID: 3026156377462602787}
+  regularbulletPool: {fileID: 752227499251166027}
   allAmmos:
   - {fileID: 11400000, guid: f6be3fc847817134293207f5e359c8b0, type: 2}
   - {fileID: 11400000, guid: f8fcd2a2e63f6ad4d92f6100e3d70762, type: 2}
   - {fileID: 11400000, guid: 424f1f4a62b7a924980e689fa9869da6, type: 2}
   currAmmo: {fileID: 11400000, guid: f6be3fc847817134293207f5e359c8b0, type: 2}
+  ammoText: {fileID: 0}
+  ammoImage: {fileID: 0}
 --- !u!114 &3026156377462602787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +312,7 @@ GameObject:
   - component: {fileID: 3503965387402796792}
   - component: {fileID: 3503965387402796795}
   - component: {fileID: 3503965387402796793}
+  - component: {fileID: 6783856599231350839}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -421,7 +424,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.3333334, y: 1.3333334}
     newSize: {x: 0.2, y: 0.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -445,6 +448,42 @@ MonoBehaviour:
   moveSpeed: 5
   dashMult: 8
   isDashing: 0
-  startDashTimer: 0
+  startDashTimer: 0.1
   currentDashTimer: 0
   rb: {fileID: 3503965387402796792}
+--- !u!114 &6783856599231350839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503965387402796794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded34aebd118f424a9d5abc1e463c3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSkills:
+  - {fileID: 11400000, guid: ef22abd72ccd65048a5291eeee1df04d, type: 2}
+  - {fileID: 11400000, guid: c9e6cecdd5c27974ea8360b371a9b5ea, type: 2}
+  - {fileID: 11400000, guid: 64bf9a1959891a447b48aae8e118752b, type: 2}
+  - {fileID: 11400000, guid: 57e230a4d4bfb774ca14cc67a0366a8a, type: 2}
+  - {fileID: 11400000, guid: 53c70fd8bdb97a74381fa305633125af, type: 2}
+  - {fileID: 11400000, guid: 1921726ab8b179d4483514fc0e2a6c1b, type: 2}
+  - {fileID: 11400000, guid: 08ba1071d49c3de47a146e20badfcf63, type: 2}
+  currSkillSet:
+  - {fileID: 11400000, guid: ef22abd72ccd65048a5291eeee1df04d, type: 2}
+  - {fileID: 11400000, guid: 1921726ab8b179d4483514fc0e2a6c1b, type: 2}
+  - {fileID: 11400000, guid: 57e230a4d4bfb774ca14cc67a0366a8a, type: 2}
+  - {fileID: 11400000, guid: 64bf9a1959891a447b48aae8e118752b, type: 2}
+  maxSkillsAmount: 4
+  selectedSkill: 0
+  activationTimer: 10
+  plsh: {fileID: 3503965385513484906}
+  plmo: {fileID: 3503965387402796793}
+  skill1: {fileID: 0}
+  skill2: {fileID: 0}
+  skill3: {fileID: 0}
+  skill4: {fileID: 0}
+  skillSelection: {fileID: 0}
+  timer: {fileID: 0}

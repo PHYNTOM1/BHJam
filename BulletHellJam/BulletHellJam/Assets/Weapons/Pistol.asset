@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d025c03acbcce0548a710efd09621ae3, type: 3}
-  m_Name: PooPooGun
+  m_Name: Pistol
   m_EditorClassIdentifier: 
   weaponID: 3
-  shootSpeed: 1
-  minBulletsPerShot: 2
-  maxBulletsPerShot: 7
-  hasPattern: 1
-  spreadAngle: 30
-  sprite: {fileID: 21300000, guid: 8236dad33c50be44d8728578d243391b, type: 3}
-  bulletPrefab: {fileID: 6287627125146453152, guid: a5831188444ac5a4fbe0e5f1ab276327,
+  shootSpeed: 0.2
+  minBulletsPerShot: 1
+  maxBulletsPerShot: 1
+  hasPattern: 0
+  spreadAngle: 0
+  sprite: {fileID: 21300000, guid: c9677178c0efc7a4e88c57c1207b4cf5, type: 3}
+  bulletPrefab: {fileID: 6287627125146453152, guid: a1aa01fba1a06ba459514d9daab72d89,
     type: 3}
+  bulletType: 2
